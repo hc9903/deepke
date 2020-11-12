@@ -43,9 +43,23 @@ def load_csv(fp: Path, is_tsv: bool = False, verbose: bool = True) -> List:
         logger.info(f'load csv from {fp}')
 
     dialect = 'excel-tab' if is_tsv else 'excel'
+    ans = []
     with open(fp, encoding='utf-8') as f:
-        reader = csv.DictReader(f, dialect=dialect)
-        return list(reader)
+        
+        headline = f.readline().strip().split('$&$')
+        l = len(headline)
+        for row in f:
+            r = dict()
+            seg = row.strip().split('$&$')
+            for i in range(l):
+                r[headline[i]]=seg[i]
+            ans.append(r)
+    return ans
+
+
+
+
+
 
 
 def save_csv(data: List[Dict], fp: Path, save_in_tsv: False, write_head=True, verbose=True) -> None:
