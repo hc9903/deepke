@@ -111,21 +111,6 @@ def main(cfg):
                 best_es_f1 = es_f1
                 best_es_path = es_path
 
-    if cfg.show_plot:
-        if cfg.plot_utils == 'matplot':
-            plt.plot(train_losses, 'x-')
-            plt.plot(valid_losses, '+-')
-            plt.legend(['train', 'valid'])
-            plt.title('train/valid comparison loss')
-            plt.show()
-
-        if cfg.plot_utils == 'tensorboard':
-            for i in range(len(train_losses)):
-                writer.add_scalars('train/valid_comparison_loss', {
-                    'train': train_losses[i],
-                    'valid': valid_losses[i]
-                }, i)
-            writer.close()
 
     logger.info(f'best(valid loss quota) early stopping epoch: {best_es_epoch}, '
                 f'this epoch macro f1: {best_es_f1:0.4f}')
