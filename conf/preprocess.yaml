@@ -1,6 +1,6 @@
 # 是否需要预处理数据
 # 当数据处理参数没有变换时，不需要重新预处理
-preprocess: False
+preprocess: True
 
 # 原始数据存放位置
 data_path: 'data/origin'
