@@ -122,7 +122,7 @@ def main(cfg):
             if prob < 0.96:
                 continue
             out.write(f"\"{data[0]['head']}\" is-a \"{data[0]['tail']}\" 的置信度为{prob:.2f}。\tsentence: {line.split(' ')[0]}\n")
-            print(f"\"{data[0]['head']}\" 和 \"{data[0]['tail']}\" 在句中关系为：\"{prob_rel}\"，置信度为{prob:.2f}。")
+            print(f"\"{data[0]['head']}\" is-a \"{data[0]['tail']}\" 的置信度为{prob:.2f}。\tsentence: {line.split(' ')[0]}")
 
 
 
