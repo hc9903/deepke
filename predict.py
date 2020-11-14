@@ -38,7 +38,8 @@ def _get_predict_instance(cfg, line):
 
 
 # 自定义模型存储的路径
-fp = os.path.abspath('.') + os.path.sep + 'cnn_epoch22.pth'
+cw = os.path.abspath('.') + os.path.sep
+fp = cw + 'cnn_epoch22.pth'
 if os.path.exists(fp) == False:
     print('no .pth file exists in', os.path.abspath('.'))
     sys.exit()
@@ -89,8 +90,8 @@ def main(cfg):
 
 
 
-    file = open(os.path.abspath('.') + os.path.sep + 'out.txt', encoding = "utf8")
-    out = open(os.path.abspath('.') + os.path.sep + 'predict.txt', 'w', encoding = "utf8")
+    file = open(cw + 'data' + os.path.sep + 'out.txt', encoding = "utf8")
+    out = open(cw + 'data' + os.path.sep + 'predict.txt', 'w', encoding = "utf8")
     #last_line = ''
     for line in file:
         # get predict instance
